@@ -10,8 +10,14 @@ Set up a python environment and install the required libraries:
 pip install -r requirements.txt
 ``` 
 
-Execute the following command to get the labels: 
+1- Execute the following command to get the labels: 
 
 ``` shell
 python -m export_labels --output mbfc_labels.csv --input html_files >> result.out
 ``` 
+
+2- Link the publishers with the MBFC labels:
+
+``` shell
+python -m link --input_publishers covid_news_publishers.csv --input_mbfc mbfc_labels.csv --output covid_news_publishers_mbfc_labels.csv
+```
