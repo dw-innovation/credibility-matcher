@@ -13,7 +13,7 @@ pip install -r requirements.txt
 1- Execute the following command to get the labels: 
 
 ``` shell
-python -m export_labels --output mbfc_labels.csv --input html_files >> result.out
+python -m export_labels --output mbfc_labels.csv --input html_files
 ``` 
 
 2- Link the publishers with the MBFC labels:

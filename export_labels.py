@@ -1,7 +1,6 @@
 import re
 
 import pandas as pd
-import tldextract
 from dataclasses import dataclass
 from argparse import ArgumentParser
 from pathlib import Path
@@ -13,9 +12,7 @@ REGEX_MATCH = r"(\S+\.\S+)"
 @dataclass
 class Publisher:
     name: str
-    domain: str = None
-    subdomain: str = None
-    suffix: str = None
+    website:str = None
     label: str = None
 
 
@@ -43,13 +40,10 @@ def export_labels(input_folder: str, output_file: str):
             else:
                 website = matches[0].replace('(', '').replace(')', '')
                 name = cell_data.replace(f'{matches[0]}', '').strip()
-                tld_result = tldextract.extract(website)
 
                 publishers.append(
                     Publisher(name=name,
-                              subdomain=tld_result.subdomain,
-                              domain=tld_result.domain,
-                              suffix=tld_result.suffix,
+                              website=website,
                               label=label))
 
     pd.DataFrame(publishers).to_csv(output_file, index=False)
