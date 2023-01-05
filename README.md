@@ -1,4 +1,4 @@
-# Matching Publishers with the Website Credibility Sources  
+# Matching Publishers with the External Sources for Credibility Analysis
 
 ## Media Bias/Fact Check 
 
