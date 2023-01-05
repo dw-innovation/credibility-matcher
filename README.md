@@ -1,4 +1,6 @@
-# Media Bias/Fact Check 
+# Matching Publishers with the Website Credibility Sources  
+
+## Media Bias/Fact Check 
 
 Media Bias/Fact Check ([MBFC](https://mediabiasfactcheck.com)) is a website by editor Dave M. Van Zandt for scoring publishers in terms of bias and factuality.
 
@@ -9,7 +11,7 @@ Set up a python environment and install the required libraries:
 ``` shell
 pip install -r requirements.txt
 ``` 
-
+  
 1- Execute the following command to get the labels: 
 
 ``` shell
