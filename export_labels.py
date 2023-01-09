@@ -12,11 +12,11 @@ REGEX_MATCH = r"(\S+\.\S+)"
 @dataclass
 class Publisher:
     name: str
-    website:str = None
+    website: str = None
     label: str = None
 
 
-def export_labels(input_folder: str, output_file: str):
+def export_mbfc_labels(input_folder: str, output_file: str):
     input_folder = Path(input_folder)
 
     publishers = []
@@ -56,4 +56,4 @@ if __name__ == '__main__':
 
     args = argparse.parse_args()
 
-    export_labels(input_folder=args.input, output_file=args.output)
+    export_mbfc_labels(input_folder=args.input, output_file=args.output)
