@@ -77,7 +77,7 @@ def entity_linker(publisher_domain):
             logger.error(f"{publisher_domain} does not have official website")
             continue
 
-        if extract(official_website).domain == extract(publisher_domain).domain:
+        if extract(official_website).domain.lower() == extract(publisher_domain).domain.lower():
             linked_document = candidate_document
             break
 
@@ -85,9 +85,11 @@ def entity_linker(publisher_domain):
 
 
 def fetch_official_website(candidate_document):
-    official_website = fetch_official_website_from_wdata(candidate_document["wd"].split('/')[-1])
-    if not official_website and "wp" in candidate_document:
+    official_website = None
+    if "wp" in candidate_document:
         official_website = fetch_official_website_from_wikipedia(candidate_document["wp"].split('/')[-1])
+    if not official_website:
+        official_website = fetch_official_website_from_wdata(candidate_document["wd"].split('/')[-1])
     return official_website
 
 
@@ -95,5 +97,7 @@ if __name__ == '__main__':
     # example_id = "Q7806547"
     # fetch_official_website_from_wdata(example_id)
 
-    example_id = "Times_Now"
-    print(fetch_official_website_from_wikipedia(example_id))
+    publisher_domain = "dw.com"
+    print(entity_linker(publisher_domain))
+    # example_id = "Times_Now"
+    # print(fetch_official_website_from_wikipedia(example_id))
